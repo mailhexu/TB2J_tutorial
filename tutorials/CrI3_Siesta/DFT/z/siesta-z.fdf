@@ -1,0 +1,90 @@
+SystemName	siesta
+SystemLabel	siesta
+
+CDF.Compress	9
+CDF.Save	True
+MaxSCFIteration	60
+SCF.DM.Tolerance	0.0001
+SCF.EDM.Tolerance	1e-2 eV
+SCF.H.Tolerance	1e-3 eV
+SCF.Mixer.History	16
+SCF.Mixer.Method	Pulay
+SCF.Mixer.Spin	sum
+SCF.Mixer.Weight	0.4
+SaveHS	True
+Spin.OrbitStrength	1.0
+WriteOrbMom	True
+SCFMustConverge	True
+
+Spin     	spin-orbit
+XC.functional	GGA
+XC.authors	PBEsol
+
+MeshCutoff	2721.1386024367243	eV
+
+NumberOfSpecies	2
+NumberOfAtoms	8
+%block ChemicalSpecieslabel
+    1 24 Cr
+    2 53 I
+%endblock ChemicalSpecieslabel
+
+%block PAO.Basis                 # Define Basis set
+Cr                  4                    # Species label, number of l-shells
+ n=3   0   1                         # n, l, Nzeta
+   2.710
+   1.000
+ n=4   0   2 P   1                   # n, l, Nzeta, Polarization, NzetaPol
+   7.744      6.749
+   1.000      1.000
+ n=3   1   1                         # n, l, Nzeta
+   2.995
+   1.000
+ n=3   2   2                         # n, l, Nzeta
+   5.457      2.885
+   1.000      1.000
+I                   2                    # Species label, number of l-shells
+ n=5   0   2                         # n, l, Nzeta
+   4.976      3.924
+   1.000      1.000
+ n=5   1   2 P   1                   # n, l, Nzeta, Polarization, NzetaPol
+   6.232      4.503
+   1.000      1.000
+%endblock PAO.Basis
+
+
+
+LatticeConstant	1.0 Ang
+%block LatticeVectors
+    -5.848975172582126     3.372497206269751     0.000354613819875 
+    -5.848975180519783     -3.372497219499181     -0.000354612232343 
+    -0.000000002116709     0.001439716032288     13.256297586987865 
+%endblock LatticeVectors
+
+
+AtomicCoordinatesFormat  Ang
+%block AtomicCoordinatesAndAtomicSpecies
+    -3.902644002      0.000719888      6.628146621 1
+    -7.795306165      0.000719879      6.628146651 1
+    -2.027621967      1.166630702      5.071909126 2
+    -7.876595244      2.207307076      8.184748076 2
+    -5.848975128      1.041165281      5.069867125 2
+    -5.848975074     -1.039727575      8.186435275 2
+    -3.821353244     -2.205866449      5.071554524 2
+    -9.670330456     -1.165190240      8.184393442 2
+%endblock AtomicCoordinatesAndAtomicSpecies
+
+%block DM.InitSpin
+    1 3.00000000000000 
+    2 3.00000000000000 
+%endblock DM.InitSpin
+
+DM.UseSaveDM	True
+
+#KPoint grid
+%block kgrid_Monkhorst_Pack
+     9       0       0  0.0
+     0       9       0  0.0
+     0       0       1  0.0
+%endblock kgrid_Monkhorst_Pack
+
